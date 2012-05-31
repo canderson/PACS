@@ -1,0 +1,29 @@
+The "Physics and Astronomy Classification Scheme" (PACS) is a hierarchical set of numeric codes for classifying and organizing published physics research. Many physics journals, for instance, associate several PACS codes with each published paper. The scheme is available on the web [1, 2] but in an opaque format. This repository contains a Python script for scraping the scheme from its current format and a YAML file with the full scheme.
+
+The YAML file is a dictionary of nodes with the keys being the PACS codes (example, 01.30.Ee). The nodes contain the following information (with some properties possibly being null):
+* code : A PACS code. Matches the key.
+
+* name : The human-readable name (example, "Forces in hadronic systems and effective interactions").
+
+* level : The level of generality of the code, as defined here: http://www.aip.org/pacs/pacs2010/about.html
+
+* parent : The parent code in the hierarchy.
+
+* children : A list of children codes in the hierarchy.
+
+* description : A human-readable description of how this code fits into the classification scheme.
+
+* cross_references : A list of codes that are cross-referenced in the description.
+
+* cross_referenced : A list of codes that cross-reference this code in their descriptions.
+
+* cross_parents : A code might be cross-listed as children of codes other than its main parent. This is a list of those "cross parents".
+
+* cross_children : A list of "cross children".
+
+* source : The scheme from which the code was taken. There are several supplemental PACS schemes, but currently only the "main" scheme is used.
+
+* year_s : The year (as a string) of the scheme from which the code was taken. All codes are from the 2010 scheme.
+
+[1] http://publish.aps.org/PACS
+[2] http://www.aip.org/pacs/
